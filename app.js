@@ -1,4 +1,4 @@
-// if user add a note add in local storage
+// if some notes already present in local storage invoke showNotes
 showNotes();
 let addBtn = document.getElementById('AddBtn');
 addBtn.addEventListener('click', function () {
@@ -58,12 +58,6 @@ function showNotes() {
 // function to delete note
 
 function deleteNote(index) {
-    let notes = localStorage.getItem('notes');
-    if (notes == null) {
-        notesObj = [];
-    } else {
-        notesObj = JSON.parse(notes);
-    }
     notesObj.splice(index, 1);
     localStorage.setItem("notes", JSON.stringify(notesObj));
     showNotes();
